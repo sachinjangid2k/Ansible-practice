@@ -3,3 +3,14 @@
   - package: "name=httpd state= persent"
   - copy: "src= my.html dest=/var//www/html/index.html"
   - service: "name=httpd state=started"
+  
+  ****************************************************
+  
+  we can also write { - package: "name=httpd state= persent" } as
+  - package: 
+    name: "httpd"
+    state: persent
+
+******************************************************
+
+ Use { ansible-playbook <filename.yml> } to run the ansible playbook.
