@@ -1,0 +1,21 @@
+- hosts: all
+  tasks:
+  - name: "install docker"
+    package: 
+     name: "docker-ce"
+     state: present
+  - name: install docker module for python
+    pip:
+     name: "docker" 
+  - service: 
+     name: "docker"
+     state: started
+  - name: "docker images pull"
+    docker_image:
+     name: "centos:latest"
+     source: pull
+  - name: docker run
+    docker_container:
+     name: "dockeransible"
+     image: "centos:latest"
+     state: present
